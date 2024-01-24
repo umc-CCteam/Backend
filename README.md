@@ -31,3 +31,9 @@ Resolves: #123              // 꼬리말 => 이슈 123을 해결했으며,
 Ref: #456                                 이슈 456 를 참고해야하며,
 Related to: #48, #45         현재 커밋에서 아직 이슈 48 과 45 가 해결되지 않았다.
 ```
+
+<h1>데이터베이스 및 Java Naming 협약</h1>
+<h2>Java : camelCase 적용 </h2>
+ex) userLogin, saveId ...
+<h2>데이터베이스 : snake_case 적용</h2>
+ex) user_login, save_id ...
