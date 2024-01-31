@@ -39,15 +39,17 @@ public class AuthController {
 
     // ===== 회원가입 API ===== //
     @PostMapping("/join")
-    @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",description = "OK, 성공"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201",description = "OK, 회원가입 성공"),
-    })
     public ApiResponse<AuthResponseDTO.JoinResultDTO> joinAPI(
             @RequestBody @Valid AuthRequestDTO.JoinDto request){
         Member auth = authCommandService.joinAuth(request);
 
-        return ApiResponse.onSuccess(AuthConverter.toJoinResultDTO(auth));
+//        임의로 API 응답 Faulure로 코드까지 추가해두기
+        if (false){
+            return ApiResponse.onSuccess(AuthConverter.toJoinResultDTO(auth));
+        } else{
+            return ApiResponse.onFailure("201", "회원가입 성공", null); // 추후 onSuccess로 바꿔야함.
+        }
+
 
     }
 

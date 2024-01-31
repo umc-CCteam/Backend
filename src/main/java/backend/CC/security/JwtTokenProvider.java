@@ -49,6 +49,7 @@ public class JwtTokenProvider {
 //        System.out.println(">> jwt : " + jwt);
     }
 
+    // (아래 함수는 아직 수정 해야함)
     // JWT에서 값 추출하는 함수
     // 프론트에서 JWT를 "X-ACCESS-TOKEN"이라는 이름의 Header에 담아 넘겨준 상황
     // -> 헤더에서 JWT 토큰 추출 가능
