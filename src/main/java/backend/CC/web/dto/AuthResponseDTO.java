@@ -28,7 +28,6 @@ public class AuthResponseDTO {
     @AllArgsConstructor
     public static class JoinResultDTO{
         String message; // 회원가입 성공 메세지
-        String access_token; // access 토큰값
         LocalDateTime createdAt;
     }
     // ===================== //

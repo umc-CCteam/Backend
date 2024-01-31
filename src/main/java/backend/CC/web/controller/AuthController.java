@@ -27,9 +27,10 @@ public class AuthController {
             @RequestBody @Valid AuthRequestDTO.LoginDto request) {
         boolean isTrue = authCommandService.loginAuth(request);
         if (isTrue) {
-            return ApiResponse.onSuccess(AuthConverter.toLoginResultDTO());
+                    //userEmail : 사용자가 입력한 이메일, loginSuccess : 로그인 성공 여부
+            return ApiResponse.onSuccess(AuthConverter.toLoginResultDTO(request.getEmail(), true));
         }else {
-            return ApiResponse.onFailure("404","비밀번호또는 아이디가 잘못되었습니다.",AuthConverter.toLoginResultDTO());
+            return ApiResponse.onFailure("404","비밀번호또는 아이디가 잘못되었습니다.",AuthConverter.toLoginResultDTO(request.getEmail(), false));
         }
 
     }
