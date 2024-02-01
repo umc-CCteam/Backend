@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class JwtTokenProvider {
     // -- 토큰생성 함수 -- //
-
+    // ( access)
     public String createToken(String email) {
 
         //Header 부분 설정
@@ -24,16 +24,14 @@ public class JwtTokenProvider {
         //payload 부분 설정
         Map<String, Object> payloads = new HashMap<>();
         payloads.put("email", email);
-//        payloads.put("NickName","Erjuer");
-//        payloads.put("Age","29");
-//        payloads.put("TempAuth","Y");
+//
 
         Long expiredTime = 1000 * 60L * 60L * 1L; // 토큰 유효 시간 (2시간)
 
         Date date = new Date(); // 토큰 만료 시간
         date.setTime(date.getTime() + expiredTime);
 
-    Key key = Keys.hmacShaKeyFor("jla654ajsd=nalj32r087u0rwef41683@#$%31654316!#$%1#$%Tgsd64sd8f6f48724911c".getBytes(StandardCharsets.UTF_8));
+    Key key = Keys.hmacShaKeyFor("jla654ajsnalj32r087u0rwef41683@#$%31654316!#$%1#$%Tgsd64sd8f6f48724911c".getBytes(StandardCharsets.UTF_8));
 
         // 토큰 Builder
         String jwt = Jwts.builder()
@@ -49,24 +47,19 @@ public class JwtTokenProvider {
 //        System.out.println(">> jwt : " + jwt);
     }
 
-    // (아래 함수는 아직 수정 해야함)
+
     // JWT에서 값 추출하는 함수
     // 프론트에서 JWT를 "X-ACCESS-TOKEN"이라는 이름의 Header에 담아 넘겨준 상황
     // -> 헤더에서 JWT 토큰 추출 가능
-    public String getToken(HttpServletRequest request){
-        //HttpServletRequest에서 "X-ACCESS-TOKEN" 헤더 값 추출
-        String token = request.getHeader("X-ACCESS-TOKEN");
-
-        // 추출한 토큰이 null이거나 빈 문자열인지 확인
-        if (token == null || token.isEmpty()) {
-            // 토큰이 없는 경우 예외처리 또는 적절한 처리를 해야한다.
-            // 간단히 null을 반환하도록 처리
-            return null;
+    // JWT 토큰 추출
+    private String extractToken(HttpServletRequest request) {
+        String token = request.getHeader("X-ACCESS-TOKEN");  //HttpServletRequest에서 "X-ACCESS-TOKEN" 헤더 값 추출
+        if (token != null && !token.isEmpty()) { // 추출한 토큰이 null이 아니거나 빈 문자열이 아닌지 확인
+            return token;  // 헤더에서 추출한 토큰 반환
         }
-        // 헤더에서 추출한 토큰 반환
-        return token;
-
+        return null;
+        // 토큰이 없는 경우 예외처리 또는 적절한 처리를 해야한다.
+        // 간단히 null을 반환하도록 처리
     }
-
 }
 
