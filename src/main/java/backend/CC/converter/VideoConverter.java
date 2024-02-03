@@ -8,14 +8,14 @@ import java.util.List;
 public class VideoConverter {
 
     public static List<Video> toVideoList(List<String> video) {
-        List<Video> videoList = new ArrayList<>();
+        List<Video> videos = new ArrayList<>();
 
         for (String url : video) {
             Video videoObj = new Video(url);
-            videoList.add(videoObj);
+            videos.add(videoObj);
         }
 
-        return videoList;
+        return videos;
     }
 
 }

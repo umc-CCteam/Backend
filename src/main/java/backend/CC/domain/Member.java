@@ -28,7 +28,6 @@ public class Member extends BaseEntity {
     private boolean googleAuth;
     private boolean instaAuth;
 
-
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<CreatorPR> creatorPRList = new ArrayList<>();
 

@@ -16,7 +16,7 @@ public class Video extends BaseEntity {
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "creatorPR_id")
+    @JoinColumn(name = "creator_pr_id")
     private CreatorPR creatorPR;
 
     public Video(String url) {

@@ -34,17 +34,20 @@ public class CreatorPrConverter {
 
     public static List<PrResponseDTO.creatorPRListDTO> toCreatePrList(List<CreatorPR> creatorPRList) {
         return creatorPRList.stream()
-                .map(creatorPR ->
-                        PrResponseDTO.creatorPRListDTO.builder()
-                                .memberId(creatorPR.getMember().getId())
-                                .nickname(creatorPR.getMember().getNickname())
-                                .comment(creatorPR.getMember().getProfile().getComment())
-                                .googleAuth(creatorPR.getMember().isGoogleAuth())
-                                .instaAuth(creatorPR.getMember().isInstaAuth())
-                                .photo(creatorPR.getPhoto())
-                                .category(creatorPR.getCategory().getName())
-                                .build()
-                ).collect(Collectors.toList());
+                .map(CreatorPrConverter::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    private static PrResponseDTO.creatorPRListDTO mapToDTO(CreatorPR creatorPR) {
+        return PrResponseDTO.creatorPRListDTO.builder()
+                .memberId(creatorPR.getMember().getId())
+                .nickname(creatorPR.getMember().getNickname())
+                .comment(creatorPR.getMember().getProfile().getComment())
+                .googleAuth(creatorPR.getMember().isGoogleAuth())
+                .instaAuth(creatorPR.getMember().isInstaAuth())
+                .photo(creatorPR.getPhoto())
+                .category(creatorPR.getCategory().getName())
+                .build();
     }
 
     public static PrResponseDTO.creatorPrFormDTO toCreatePrForm(Member member) {
