@@ -7,24 +7,32 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Profile extends BaseEntity {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "profile_id")
     private Long id;
 
-    private String name;
+    private String passWord;
+
     private String email;
-    private String comment;
-    private String photo;
+
     private boolean googleAuth;
     private boolean instaAuth;
 
-    @OneToOne(mappedBy = "profile")
-    private Member member;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<CreatorPR> creatorPRList = new ArrayList<>();
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
+
 }
