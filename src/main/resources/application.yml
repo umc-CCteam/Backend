@@ -10,3 +10,17 @@ spring:
             authorization-grant-type: authorization_code
             redirect-uri: http://localhost:8080/login/oauth2/code/google
             scope: [ profile, email ]
+          instagram:
+            provider: instagram-provider
+            client-name: instagram
+            client-id: 709461204706143
+            client-secret: b9b2a68478163b8f4fc4ce8d9c88b9e4
+            redirect-uri: https://localhost:8080/login/oauth2/code/instagram
+            authorization-grant-type: authorization_code
+            scope: [ user_profile ]
+        provider:
+          instagram-provider:
+            authorization-uri: https://api.instagram.com/oauth/authorize
+            token-uri: https://api.instagram.com/oauth/access_token
+            user-info-uri: https://graph.instagram.com/me?fields=id,username&access_token={access-token}
+            user-name-attribute: username
