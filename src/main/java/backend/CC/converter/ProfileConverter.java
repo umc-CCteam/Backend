@@ -1,4 +1,4 @@
-package backend.CC.Converter;
+package backend.CC.converter;
 
 import backend.CC.web.dto.ProfileResponseDTO;
 
