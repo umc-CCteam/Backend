@@ -12,7 +12,6 @@ spring:
             scope: [ profile, email ]
           instagram:
             provider: instagram-provider
-            client-name: instagram
             client-id: 709461204706143
             client-secret: b9b2a68478163b8f4fc4ce8d9c88b9e4
             redirect-uri: https://localhost:8080/login/oauth2/code/instagram
