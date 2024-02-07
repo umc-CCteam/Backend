@@ -36,7 +36,7 @@ public class SecurityConfig {
      */
     private void decideClientPermission(AuthorizeHttpRequestsConfigurer<HttpSecurity>
                                                 .AuthorizationManagerRequestMatcherRegistry auth) {
-        auth.requestMatchers("/", "/auth/**", "/oauth2/**", "/login/**")
+        auth.requestMatchers("/", "/oauth2/**", "/login/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
