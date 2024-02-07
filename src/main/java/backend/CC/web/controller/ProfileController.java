@@ -1,6 +1,6 @@
 package backend.CC.web.controller;
 
-import backend.CC.Converter.ProfileConverter;
+import backend.CC.converter.ProfileConverter;
 import backend.CC.apiResponse.ApiResponse;
 import backend.CC.web.dto.ProfileResponseDTO;
 import lombok.RequiredArgsConstructor;
