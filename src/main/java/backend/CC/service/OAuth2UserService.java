@@ -1,7 +1,9 @@
 package backend.CC.service;
 
 import backend.CC.security.GoogleOAuth2User;
+import backend.CC.security.InstagramOAuth2User;
 import backend.CC.web.dto.GoogleResponseDTO;
+import backend.CC.web.dto.InstagramResponseDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -26,8 +28,8 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
             return new GoogleOAuth2User(responseDTO, "ROLE_USER");
         }
         if (registrationId.equals("instagram")) {
-            //TODO
-            //Instagram Oauth2.0 Implements
+            InstagramResponseDTO responseDTO = new InstagramResponseDTO(oAuth2User.getAttributes());
+            return new InstagramOAuth2User(responseDTO, "ROLE_USER");
         }
         return null;
     }
