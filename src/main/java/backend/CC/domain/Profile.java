@@ -18,7 +18,12 @@ public class Profile extends BaseEntity {
     @Column(name = "profile_id")
     private Long id;
 
+    private String name;
+    private String email;
     private String comment;
+    private String photo;
+    private boolean googleAuth;
+    private boolean instaAuth;
 
     @OneToOne(mappedBy = "profile")
     private Member member;

@@ -53,6 +53,4 @@ public class PrResponseDTO {
         boolean googleAuth;
         boolean instaAuth;
     }
-
-
 }
