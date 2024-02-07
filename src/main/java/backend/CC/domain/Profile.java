@@ -18,9 +18,6 @@ public class Profile extends BaseEntity {
     @Column(name = "profile_id")
     private Long id;
 
-    private String email;
-    private String nickname;
-    private String platform;
     private String comment;
 
     @OneToOne(mappedBy = "profile")

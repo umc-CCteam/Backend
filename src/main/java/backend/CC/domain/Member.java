@@ -2,17 +2,16 @@ package backend.CC.domain;
 
 import backend.CC.domain.common.BaseEntity;
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-@DynamicUpdate
-@DynamicInsert
+
 @Entity
 @Getter
-@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Member extends BaseEntity {
@@ -24,10 +23,10 @@ public class Member extends BaseEntity {
     private String passWord;
 
     private String email;
+    private String nickname;
 
     private boolean googleAuth;
     private boolean instaAuth;
-
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<CreatorPR> creatorPRList = new ArrayList<>();
