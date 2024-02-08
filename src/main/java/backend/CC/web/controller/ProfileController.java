@@ -18,9 +18,9 @@ public class ProfileController {
     /**
      * 프로필 조회
      */
-    @GetMapping("/{profile-id}")
+    @GetMapping("/{member-id}")
     public ApiResponse<ProfileResponseDTO.ProfileDTO> getProfile(
-            @PathVariable("profile-id") Long profileId
+            @PathVariable("member-id") Long profileId
     ) {
         Profile profile = profileService.getProfile(profileId);
         return ApiResponse.onSuccess(ProfileConverter.toProfile(profile));
@@ -29,7 +29,7 @@ public class ProfileController {
     /**
      * 프로필 작성
      */
-    @PostMapping()
+    @PostMapping("/{member-id}")
     public ApiResponse<ProfileResponseDTO.ProfileDTO> createProfile(@RequestBody ProfileRequestDTO requestDTO) {
 
         Profile profile = profileService.createProfile(requestDTO);
@@ -39,9 +39,9 @@ public class ProfileController {
     /**
      * 프로필 변경
      */
-    @PutMapping("/{profile-id}")
+    @PutMapping("/{member-id}")
     public ApiResponse<ProfileResponseDTO.ProfileDTO> updateProfile(
-            @PathVariable("profile-id") Long profileId, ProfileRequestDTO requestDTO
+            @PathVariable("member-id") Long profileId, ProfileRequestDTO requestDTO
     ) {
         Profile profile = profileService.updateProfile(profileId, requestDTO);
         return ApiResponse.onSuccess(ProfileConverter.toProfile(profile));
