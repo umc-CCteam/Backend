@@ -30,7 +30,6 @@ public class CreatorPrController {
         return ApiResponse.onSuccess(CreatorPrConverter.toCreatePrList(creatorPRList));
     }
 
-
     /**
      * creatorPR 상세 조회
      */

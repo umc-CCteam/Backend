@@ -23,6 +23,10 @@ public class CreatorPR extends BaseEntity {
     //수정 사항 필요, 어떻게 처리할지
     private String photo;
 
+    private Integer youtube;
+    private Integer insta;
+    private Integer tictok;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;

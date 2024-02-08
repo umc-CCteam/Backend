@@ -18,10 +18,12 @@ public class PrResponseDTO {
         Long creatorPrId;
         String nickname;
         String comment;
-        String category;
+        String category1;
+        String category2;
         String email;
-        boolean googleAuth;
-        boolean instaAuth;
+        Integer youtube;
+        Integer insta;
+        Integer tictok;
         String photo;
         String content;
         List<String> url;
@@ -36,9 +38,11 @@ public class PrResponseDTO {
         Long memberId;
         String nickname;
         String comment;
-        String category;
-        boolean googleAuth;
-        boolean instaAuth;
+        String category1;
+        String category2;
+        Integer youtube;
+        Integer insta;
+        Integer tictok;
         String photo;
     }
 
@@ -50,6 +54,8 @@ public class PrResponseDTO {
         String nickname;
         String comment;
         String email;
+        String category1;
+        String category2;
         boolean googleAuth;
         boolean instaAuth;
     }

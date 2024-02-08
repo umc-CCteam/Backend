@@ -13,9 +13,15 @@ public class PrRequestDTO {
         @NotEmpty
         String photo;
         @NotBlank
-        String categoryField;
+        String category1;
         @NotBlank
-        String categoryPurpose;
+        String category2;
+        @NotEmpty
+        Integer youtube;
+        @NotEmpty
+        Integer insta;
+        @NotEmpty
+        Integer tictok;
         @NotBlank
         String content;
         @NotEmpty

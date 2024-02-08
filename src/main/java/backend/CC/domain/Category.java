@@ -20,7 +20,9 @@ public class Category extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String category1;
+
+    private String category2;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private List<CreatorPR> creatorPRList = new ArrayList<>();

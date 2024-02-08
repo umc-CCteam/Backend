@@ -21,10 +21,12 @@ public class CreatorPrConverter {
                 .creatorPrId(creatorPR.getId())
                 .nickname(member.getNickname())
                 .comment(member.getProfile().getComment())
-                .category(creatorPR.getCategory().getName())
+                .category1(creatorPR.getCategory().getCategory1())
+                .category2(creatorPR.getCategory().getCategory2())
                 .email(member.getEmail())
-                .googleAuth(member.isGoogleAuth())
-                .instaAuth(member.isInstaAuth())
+                .youtube(creatorPR.getYoutube())
+                .insta(creatorPR.getInsta())
+                .tictok(creatorPR.getTictok())
                 .photo(creatorPR.getPhoto())
                 .content(creatorPR.getContent())
                 .url(videoUrlList)
@@ -43,10 +45,12 @@ public class CreatorPrConverter {
                 .memberId(creatorPR.getMember().getId())
                 .nickname(creatorPR.getMember().getNickname())
                 .comment(creatorPR.getMember().getProfile().getComment())
-                .googleAuth(creatorPR.getMember().isGoogleAuth())
-                .instaAuth(creatorPR.getMember().isInstaAuth())
+                .youtube(creatorPR.getYoutube())
+                .insta(creatorPR.getInsta())
+                .tictok(creatorPR.getTictok())
                 .photo(creatorPR.getPhoto())
-                .category(creatorPR.getCategory().getName())
+                .category1(creatorPR.getCategory().getCategory1())
+                .category2(creatorPR.getCategory().getCategory2())
                 .build();
     }
 
@@ -55,8 +59,6 @@ public class CreatorPrConverter {
                 .nickname(member.getNickname())
                 .comment(member.getProfile().getComment())
                 .email(member.getEmail())
-                .googleAuth(member.isGoogleAuth())
-                .instaAuth(member.isInstaAuth())
                 .build();
     }
 
@@ -64,6 +66,9 @@ public class CreatorPrConverter {
         return CreatorPR.builder()
                 .content(request.getContent())
                 .photo(request.getPhoto())
+                .youtube(request.getYoutube())
+                .insta(request.getInsta())
+                .tictok(request.getTictok())
                 .build();
     }
 

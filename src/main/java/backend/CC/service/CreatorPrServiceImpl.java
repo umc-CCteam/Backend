@@ -24,7 +24,6 @@ public class CreatorPrServiceImpl implements CreatorPrService {
     private final CreatorPrRepository creatorPrRepository;
     private final MemberServiceImpl memberService;
     private final CategoryRepository categoryRepository;
-    private final VideoRepository videoRepository;
 
     @Override
     public CreatorPR findById(Long creatorPrId) {
@@ -43,7 +42,8 @@ public class CreatorPrServiceImpl implements CreatorPrService {
     public CreatorPR createPr(Long memberId, PrRequestDTO.createCreatorPrDTO request) {
         Member member = memberService.findById(memberId);
         CreatorPR newPr = CreatorPrConverter.toCreatePr(request);
-        Category category = categoryRepository.findByName(request.getCategoryField());
+
+        Category category = categoryRepository.findByCategory1AndCategory2(request.getCategory1(), request.getCategory2());
         List<Video> videoList = VideoConverter.toVideoList(request.getVideo());
 
         newPr.setCategory(category);
