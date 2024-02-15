@@ -2,10 +2,7 @@ package backend.CC.service;
 
 import backend.CC.converter.CreatorPrConverter;
 import backend.CC.converter.VideoConverter;
-import backend.CC.domain.Category;
-import backend.CC.domain.CreatorPR;
-import backend.CC.domain.Member;
-import backend.CC.domain.Video;
+import backend.CC.domain.*;
 import backend.CC.repository.CategoryRepository;
 import backend.CC.repository.CreatorPrRepository;
 import backend.CC.repository.VideoRepository;
@@ -39,7 +36,7 @@ public class CreatorPrServiceImpl implements CreatorPrService {
 
     @Override
     @Transactional
-    public CreatorPR createPr(Long memberId, PrRequestDTO.createCreatorPrDTO request) {
+    public CreatorPR createPr(Long memberId, PrRequestDTO.createCreatorPrDTO request, Image image) {
         Member member = memberService.findById(memberId);
         CreatorPR newPr = CreatorPrConverter.toCreatePr(request);
 
@@ -49,6 +46,7 @@ public class CreatorPrServiceImpl implements CreatorPrService {
         newPr.setCategory(category);
         newPr.setVideoList(videoList);
         newPr.setMember(member);
+        newPr.setImage(image);
 
         for(Video video : videoList) {
             video.setCreatorPR(newPr);

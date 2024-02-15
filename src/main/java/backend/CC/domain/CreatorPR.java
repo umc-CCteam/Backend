@@ -20,8 +20,8 @@ public class CreatorPR extends BaseEntity {
 
     private String content;
 
-    //수정 사항 필요, 어떻게 처리할지
-    private String photo;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Image image;
 
     private Integer youtube;
     private Integer insta;
@@ -48,5 +48,9 @@ public class CreatorPR extends BaseEntity {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

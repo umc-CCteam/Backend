@@ -1,6 +1,7 @@
 package backend.CC.service;
 
 import backend.CC.domain.CreatorPR;
+import backend.CC.domain.Image;
 import backend.CC.web.dto.PrRequestDTO;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface CreatorPrService {
 
     public List<CreatorPR> findAll();
 
-    public CreatorPR createPr(Long memberId, PrRequestDTO.createCreatorPrDTO request);
+    public CreatorPR createPr(Long memberId, PrRequestDTO.createCreatorPrDTO request, Image image);
 }
